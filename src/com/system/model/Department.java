@@ -8,8 +8,8 @@ public class Department {
     private String introduction;
     private String departmenttel;
 
-    public Department(Integer departmentid, String departmentname, String introduction, String departmenttel) {
-        this.departmentid = departmentid;
+    public Department(String departmentname, String introduction, String departmenttel) {
+
         this.departmentname = departmentname;
         this.introduction = introduction;
         this.departmenttel = departmenttel;

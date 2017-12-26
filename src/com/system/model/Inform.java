@@ -9,8 +9,7 @@ public class Inform {
     private Date informtime;
     private String informinfo;
 
-    public Inform(Integer informid, Date informtime, String informinfo) {
-        this.informid = informid;
+    public Inform( Date informtime, String informinfo) {
         this.informtime = informtime;
         this.informinfo = informinfo;
     }

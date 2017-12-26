@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class UserServiceImpl implements UserService {
     private UserDAO userDAO = DAOFactory.getUserDAOInstance();
-    private UserPermissionDAO userPermissionDAO = DAOFactory.getUserPermissionDAOInstance();
+    private UserPermissionDAO userPermissionDAO = DAOFactory.getUserAuthorityDAOInstance();
     private AttendanceDAO attendanceDAO = DAOFactory.getAttendanceDAOInstance();
     private RepublishDAO republishDAO = DAOFactory.getRepublishDAOInstance();
     private WagesDAO wagesDAO = DAOFactory.getWagesDAOInstance();

@@ -33,6 +33,6 @@ public interface InformDAO {
      * @return
      * @throws SQLException
      */
-    int[] batchDelete(List<Inform> informs) throws SQLException;
+    int[] batchDelete(List<String> informs) throws SQLException;
 
 }
