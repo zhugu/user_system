@@ -120,9 +120,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Wages> getWages(String userid) throws SQLException {
-        List<Wages> list = null;
-        list = wagesDAO.getWages(userid);
-        return list;
+   public Wages getWages(String userid){
+        Wages wages = null;
+        try {
+            wages = wagesDAO.getWages(userid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return wages;
     }
 }

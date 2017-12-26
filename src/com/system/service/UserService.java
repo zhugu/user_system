@@ -60,5 +60,5 @@ public interface UserService {
      * @return
      * @throws SQLException
      */
-    List<Wages> getWages(String userid) throws SQLException;
+    Wages getWages(String userid) throws SQLException;
 }
