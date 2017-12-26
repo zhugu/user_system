@@ -114,7 +114,7 @@ public class MainFrame extends JFrame{
         注销登录Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new LoginFrame();
+                MainFrame.this.dispose();
             }
         });
     }

@@ -1,5 +1,7 @@
 package com.system.ui;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,12 +14,10 @@ public class Style {
      * 功能按钮面板以及的字体以及颜色
      */
     public final static Dimension BUTTON_SIZE1 = new Dimension(200, 50);
-
     public final static Color BACKGROUND1 = new Color(106,125,138);
     public final static Color BACKGROUND2 = new Color(92,109,120);
     public final static Color FONTCOLOR1 = new Color(228,242,246);
     public final static Font BUTTON_FONT1 = new Font("华文楷体", Font.PLAIN, 20);
-
     public static void setFunctionButton1(JButton button){
         button.setPreferredSize(BUTTON_SIZE1);
         button.setBackground(BACKGROUND1);
@@ -31,7 +31,6 @@ public class Style {
         button.setForeground(FONTCOLOR1);
         button.setFont(BUTTON_FONT1);
     }
-
     /**
      * 顶部按钮
      */
@@ -43,6 +42,18 @@ public class Style {
         button.setBackground(BLUE);
         button.setForeground(WHITE);
         button.setFont(BUTTON_FONT2);
+    }
+    /**
+     * 存放信息的Label的字体以及颜色
+     */
+    public final static Font LABEL_FONT = new Font("楷体",Font.PLAIN,20);
+    public static void setDisplayLabelStyle(JLabel label) {
+        label.setForeground(BLUE);
+        label.setFont(LABEL_FONT);
+    }
+    public static void setContentLabelStyle(JLabel label){
+        label.setForeground(Color.black);
+        label.setFont(LABEL_FONT);
     }
     /**
      * 文本框的尺寸
@@ -106,10 +117,6 @@ public class Style {
         component.setFont(NORMAL_FONT);
     }
 
-    public static void setLabelStyle(JLabel label) {
-        label.setForeground(BLUE);
-        label.setFont(BOLD_FONT);
-    }
 
     public static void setNormalFontFont(JComponent component) {
         component.setFont(NORMAL_FONT);

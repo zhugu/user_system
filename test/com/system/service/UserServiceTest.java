@@ -100,8 +100,8 @@ public class UserServiceTest {
     }
     @Test
     public void getWages()throws Exception{
-        List<Wages> list = userService.getWages("101004");
-        list.forEach(wages -> System.out.println(wages));
+        Wages wages = userService.getWages("101004");
+       System.out.println(wages);
     }
 
 }

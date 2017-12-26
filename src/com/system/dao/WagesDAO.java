@@ -15,6 +15,6 @@ public interface WagesDAO {
      * @return
      * @throws SQLException
      */
-    List<Wages> getWages(String userid) throws SQLException;
+    Wages getWages(String userid) throws SQLException;
 
 }
