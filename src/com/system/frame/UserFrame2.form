@@ -16,7 +16,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="62d4d" class="javax.swing.JLabel">
+      <component id="62d4d" class="javax.swing.JLabel" binding="Label2">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
           <text value="工号："/>
         </properties>
       </component>
-      <component id="60d27" class="javax.swing.JLabel">
+      <component id="60d27" class="javax.swing.JLabel" binding="Label3">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -32,7 +32,7 @@
           <text value="基本工资："/>
         </properties>
       </component>
-      <component id="1c116" class="javax.swing.JLabel">
+      <component id="1c116" class="javax.swing.JLabel" binding="Label4">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -40,7 +40,7 @@
           <text value="全勤奖："/>
         </properties>
       </component>
-      <component id="ae0a6" class="javax.swing.JLabel">
+      <component id="ae0a6" class="javax.swing.JLabel" binding="Label5">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -48,7 +48,7 @@
           <text value="工龄工奖："/>
         </properties>
       </component>
-      <component id="c76bf" class="javax.swing.JLabel">
+      <component id="c76bf" class="javax.swing.JLabel" binding="Label6">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -56,7 +56,7 @@
           <text value="惩："/>
         </properties>
       </component>
-      <component id="a121" class="javax.swing.JLabel">
+      <component id="a121" class="javax.swing.JLabel" binding="Label7">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -64,7 +64,7 @@
           <text value="五险一金:"/>
         </properties>
       </component>
-      <component id="fef1e" class="javax.swing.JLabel">
+      <component id="fef1e" class="javax.swing.JLabel" binding="Label8">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -72,7 +72,7 @@
           <text value="个税："/>
         </properties>
       </component>
-      <component id="4a4dc" class="javax.swing.JLabel">
+      <component id="4a4dc" class="javax.swing.JLabel" binding="Label9">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -80,7 +80,7 @@
           <text value="应发工资："/>
         </properties>
       </component>
-      <component id="7b182" class="javax.swing.JLabel">
+      <component id="7b182" class="javax.swing.JLabel" binding="Label10">
         <constraints>
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -88,7 +88,7 @@
           <text value="实发工资："/>
         </properties>
       </component>
-      <component id="af381" class="javax.swing.JLabel">
+      <component id="af381" class="javax.swing.JLabel" binding="Label11">
         <constraints>
           <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -186,10 +186,10 @@
       </component>
       <component id="6e6e2" class="javax.swing.JButton" binding="查看工资报表Button" default-binding="true">
         <constraints>
-          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="查看工资报表"/>
+          <text value="查看工资走势"/>
         </properties>
       </component>
     </children>

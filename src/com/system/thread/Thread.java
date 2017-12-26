@@ -16,7 +16,7 @@ public class Thread implements Runnable {
     }
     @Override
     public void run() {
-        int index = random.nextInt(3);
+        int index = random.nextInt(3)+1;
         imagePanel.setImgPath(String.valueOf(index)+".png");
         imagePanel.repaint();
     }
