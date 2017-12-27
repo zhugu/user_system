@@ -12,8 +12,7 @@ public class Republish {
     private String rpreason;
     private String reresult;
 
-    public Republish(Integer rpid, String userid, String rpname, Date rpdate, String rpreason, String reresult) {
-        this.rpid = rpid;
+    public Republish( String userid, String rpname, Date rpdate, String rpreason, String reresult) {
         this.userid = userid;
         this.rpname = rpname;
         this.rpdate = rpdate;

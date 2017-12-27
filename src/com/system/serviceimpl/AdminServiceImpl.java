@@ -13,7 +13,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public User getuser(String userid) throws SQLException{
-        return userDAO.get(userid);
+        return userDAO.getuser(userid);
     }
 
     @Override

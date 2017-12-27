@@ -14,7 +14,7 @@ public class UserPermissionDAOTest {
 
     @Before
     public void setUp() throws Exception {
-        userPermissionDAO = DAOFactory.getUserPermissionDAOInstance();
+        userPermissionDAO = DAOFactory.getUserAuthorityDAOInstance();
     }
 
     @Test

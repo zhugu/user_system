@@ -1,22 +1,18 @@
 package com.system.frame;
 
-import com.system.factory.DAOFactory;
 import com.system.model.User;
 import com.system.ui.Style;
+import com.system.utils.PermissionUtils;
+import com.system.utils.SwitchUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.sun.glass.ui.Cursor.setVisible;
-
-/**
- * @author 缪瑞祥，徐文倩
- */
 public class MainFrame extends JFrame{
     private JPanel mainPanel;
     private JPanel topPanel;
@@ -35,6 +31,16 @@ public class MainFrame extends JFrame{
     private int i = 0;
     private User user;
     private Map<String,List<String>> userAuthorityMap;
+    private JButton[] jButtons ;
+    private JPanel applyPanel;
+    private JPanel searchFrame;
+    private Integer j = 0;
+    private PermissionUtils permissionUtils;
+    private SwitchUtil switchUtil;
+    private List<String> items;
+
+
+
 
 
     public MainFrame(User user, Map<String,List<String>> userAuthorityMap) {
@@ -60,29 +66,59 @@ public class MainFrame extends JFrame{
         leftPanel.setLayout(new GridLayout(group,1));
         JPanel[] jPanels = new JPanel[group];
 
-        contentPanel.setLayout(new CardLayout());
 
+        //设置卡片布局
+        CardLayout card = new CardLayout();
+        contentPanel.setLayout(card);
+
+
+
+        //循环Map数据
         for (Map.Entry<String, List<String>> entry : userAuthorityMap.entrySet()) {
-            System.out.println("key= " + entry.getKey() + ", value= " + entry.getValue());
             int count = entry.getValue().size();
-            int j = 0;
+
+
+
             jPanels[i] = new JPanel(new GridLayout(2,1));
             jPanels[i].setPreferredSize(new Dimension(150,20));
             JPanel groupPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
             groupPanel.setPreferredSize(new Dimension(150,10));
             JPanel itemPanel = new JPanel(new GridLayout(count,1));
             itemPanel.setVisible(false);
-            JPanel[] jPanels1 =new JPanel[count];
-            JButton[] jButtons = new JButton[count];
+
+
+            items =new ArrayList<>();
+
+            //权限项按钮的初始化
+            JPanel[] jPanels1 =new JPanel[20];
+            jButtons = new JButton[20];
+
+
+            //获得权限项按钮
             for (String item:entry.getValue()) {
                 jButtons[j] = new JButton(item);
+                items.add(item);
                 jPanels1[j] = new JPanel(new FlowLayout(FlowLayout.CENTER));
                 jPanels1[j].setSize(new Dimension(150,10));
                 jPanels1[j].setBackground(Style.BACKGROUND2);
                 jPanels1[j].add(jButtons[j]);
                 itemPanel.add(jPanels1[j]);
+
+                jButtons[j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String info = e.getActionCommand();
+                        permissionUtils = new PermissionUtils();
+                        switchUtil = new SwitchUtil();
+                        switchUtil.getaction(info,contentPanel,permissionUtils.getPermissions());
+                    }
+                });
+
                 j ++;
             }
+
+
+            //权限组按钮的设置
             buttons[i] = new JButton(entry.getKey());
             Style.setFunctionButton1(buttons[i]);
             groupPanel.add(buttons[i]);
@@ -91,6 +127,7 @@ public class MainFrame extends JFrame{
             jPanels[i].add(itemPanel);
             jPanels[i].setBackground(Style.BACKGROUND2);
             leftPanel.add(jPanels[i]);
+
             buttons[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -101,9 +138,9 @@ public class MainFrame extends JFrame{
                     }
                 }
             });
+
             i++;
         }
-
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -115,6 +152,7 @@ public class MainFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 MainFrame.this.dispose();
+                new LoginFrame();
             }
         });
     }
