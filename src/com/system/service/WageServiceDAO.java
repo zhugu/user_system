@@ -16,7 +16,7 @@ public interface WageServiceDAO {
     //修改工资表信息
     int updateWages(Wages wages);
     //查看某人工资表信息
-    Wages search(String account);
+    List<Wages> search(String account);
     //查看工资表所有信息
     List<Wages> getAllWages();
     //查找全部员工

@@ -20,16 +20,16 @@ public interface UserService {
      * @param password
      * @return
      */
-    Map<String, Object> userLogin(String userid, String password) throws SQLException;
+    Map<String, Object> userLogin(String userid, String password);
 
-    Map<String, Object> phoneLogin(String tel, String number, String captcha) throws SQLException;
+    Map<String, Object> phoneLogin(String tel, String number, String captcha);
 
     /**
      * 获取员工信息
      * @param userid
      * @return
      */
-    User getUser(String userid) throws SQLException;
+    User getUser(String userid);
 
     /**
      * 获取某个员工的考勤信息列表
@@ -37,14 +37,14 @@ public interface UserService {
      * @return
      * @throws SQLException
      */
-    List<Attendance> getAttendance(String userid ) throws SQLException;
+    List<Attendance> getAttendance(String userid );
 
     /**
      * 修改员工信息
      * @param user
      * @return boolean
      */
-    boolean updateUser(User user) throws SQLException;
+    boolean updateUser(User user);
 
     /**
      * 获取员工的奖惩列表
@@ -52,13 +52,9 @@ public interface UserService {
      * @return
      * @throws SQLException
      */
-    List<Republish> getRP(String userid) throws SQLException;
+    List<Republish> getRP(String userid);
 
-    /**
-     * 查看员工薪资状况
-     * @param userid
-     * @return
-     * @throws SQLException
-     */
-    Wages getWages(String userid) throws SQLException;
+    //查看某人工资表信息
+    List<Wages> search(String account)throws SQLException;
+
 }

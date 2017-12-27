@@ -18,8 +18,8 @@ public class PermissionUtils {
 //        map.put("新增员工信息",new NewUser().getMainPanel());
 //        map.put("删除员工信息",new DeletUserPanel().getMainPanel());
 //        map.put("查看工资",new );
-          map.put("查看所有人工资",new SearchFrame().getMainpanel());
-          map.put("录入工资",new AddFrame().getMainpanel());
+          map.put("查看所有人工资",new SearchPanel().getMainpanel());
+          map.put("录入工资",new AddPanel().getMainpanel());
 //        map.put("修改工作",new );
  //       map.put("生成工资报表",new );
           map.put("发出通知",new InformPanel().getMainPanel());

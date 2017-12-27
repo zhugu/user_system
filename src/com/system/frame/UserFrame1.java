@@ -107,11 +107,7 @@ public class UserFrame1 extends JPanel {
                 String idnumber = idnumberField.getText();
                 user.setIdentityID(idnumber);
                 boolean flag = false;
-                try {
-                    flag = userService.updateUser(user);
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
+                flag = userService.updateUser(user);
                 if(flag){
                     JOptionPane.showMessageDialog(null,"修改成功！");
                 }
@@ -126,12 +122,7 @@ public class UserFrame1 extends JPanel {
     public static void main(String[] args) {
         UserService userService = ServiceFactory.getUserServiceInstance();
         User user = null;
-        try {
-            user = userService.getUser("101005");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        user = userService.getUser("101005");
         JFrame frame = new JFrame("UserFrame1");
         frame.setContentPane(new UserFrame1(user).mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

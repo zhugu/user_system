@@ -37,12 +37,12 @@ public class WageFrame extends JFrame{
     private JButton 取消Button;
     private JButton gettimebutton;
     private JLabel timelabel;
-    private AddFrame addFrame;
+    private AddPanel addPanel;
     private String dateString;
     private WageServiceDAO wageServiceDAO= ServiceFactory.getWageServiceDAOInstance();
 
-    public WageFrame(AddFrame addFrame){
-        this.addFrame=addFrame;
+    public WageFrame(AddPanel addPanel){
+        this.addPanel=addPanel;
         init();
         setTitle("工资录入面板");
         setSize(600,700);
@@ -65,7 +65,7 @@ public class WageFrame extends JFrame{
     }
     public void init(){
         //获得工号
-        accountfield.setText(addFrame.getAccount());
+        accountfield.setText(addPanel.getAccount());
         //获取五险一金
         insurance.setText(String .valueOf(100));
         //获取发放工资日期

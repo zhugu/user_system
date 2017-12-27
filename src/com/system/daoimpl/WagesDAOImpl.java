@@ -12,34 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 徐文倩
+ * @author 王宁
+ * on 2017/12/20.
+ * wagesDAO实现类
  */
 public class WagesDAOImpl implements WagesDAO {
-    private JDBCUtil jdbcUtil = JDBCUtil.getInitJDBCUtil();
-
-    @Override
-    public Wages getWages(String userid) throws SQLException {
-        String sql = "SELECT * FROM t_wages WHERE userid = ? ";
-        Map<String,Object> map = jdbcUtil.executeQuerySingle(sql,new Object[]{userid});
-        if(map.size()!= 0){
-            Wages wages = new Wages((Integer) map.get("wagesid"),
-                    map.get("userid").toString(),(Double)map.get("basicwages"),
-                    (Double)map.get("attendancereward"),(Double)map.get("yearwages"),
-                    (Double)map.get("publish"),(Double)map.get("insurance"),
-                    (Double)map.get("tax"),(Double)map.get("wages"),
-                    (Double)map.get("truewages"),(Date)map.get("date"));
-            wages.setWagesid((Integer)map.get("id"));
-            return wages;
-        }else {
-            return null;
-        }
-
-    }
+    private JDBCUtil jdbcUtil= JDBCUtil.getInitJDBCUtil();
     @Override
     public int insertWages(Wages wages) throws SQLException {
         String  sql="INSERT INTO t_wages VALUES (null,?,?,?,?,?,?,?,?,?,?) ";
         Object[] params={wages.getUserid(),wages.getBasicwages(),wages.getAttendancereward(),wages.getYearwages(),
-                wages.getPublish(),wages.getInsurance(),wages.getTax(),wages.getWages(),wages.getTruewages(),wages.getDate()};
+                            wages.getPublish(),wages.getInsurance(),wages.getTax(),wages.getWages(),wages.getTruewages(),wages.getDate()};
         int n=jdbcUtil.executeUpdate(sql,params);
         return n;
     }
@@ -54,18 +37,21 @@ public class WagesDAOImpl implements WagesDAO {
     }
 
     @Override
-    public Wages search(String account) throws SQLException {
+    public List<Wages> search(String account) throws SQLException {
         String sql="SELECT * FROM t_wages WHERE userid = ? ";
-        Map<String,Object>map=jdbcUtil.executeQuerySingle(sql,new Object[]{account});
-        if (map.size()!=0){
+        List<Object>list=jdbcUtil.excuteQuery(sql,new Object[]{account});
+        List<Wages>rpList=new ArrayList<>();
+        for (Object object : list){
+            Map<String, Object> map = (Map<String, Object>) object;
             Wages wages=new Wages((int)map.get("wagesid"),map.get("userid").toString(),(double)map.get("basicwages"),
                     (double)map.get("attendancereward"),(double)map.get("yearwages"),(double)map.get("publish"),
                     (double)map.get("insurance"),(double)map.get("tax"),(double)map.get("wages"),(double)map.get("truewages"),
                     (Date) map.get("date"));
-            return wages;
-        }else {
-            return null;
+            //给id设置值
+            wages.setWagesid((Integer) map.get("id"));
+            rpList.add(wages);
         }
+        return rpList;
     }
 
     @Override
@@ -96,7 +82,18 @@ public class WagesDAOImpl implements WagesDAO {
         return getWagesList(list);
     }
 
-
+    private List<Wages> getWagesList(List<Object> list) {
+        List<Wages> wages = new ArrayList<>();
+        for (Object object : list) {
+            Map<String, Object> map = (Map<String, Object>) object;
+            Wages wage=new Wages((int)map.get("wagesid"),map.get("userid").toString(),(double)map.get("basicwages"),
+                    (double)map.get("attendancereward"),(double)map.get("yearwages"),(double)map.get("publish"),
+                    (double)map.get("insurance"),(double)map.get("tax"),(double)map.get("wages"),(double)map.get("truewages"),
+                    (Date) map.get("date"));
+            wages.add(wage);
+        }
+        return wages;
+    }
 
     private List<User> getUserList(List<Object> list){
         List<User> users = new ArrayList<>();
@@ -111,21 +108,5 @@ public class WagesDAOImpl implements WagesDAO {
             users.add(user);
         }
         return users;
-    }
-
-    private List<Wages> getWagesList(List<Object> list){
-        List<Wages> wagesList = new ArrayList<>();
-        for(Object object : list){
-            Map<String, Object> map = (Map<String, Object>) object;
-            Wages wages = new Wages((Integer) map.get("wagesid"),
-                    map.get("userid").toString(),(Double)map.get("basicwages"),
-                    (Double)map.get("attendancereward"),(Double)map.get("yearwages"),
-                    (Double)map.get("publish"),(Double)map.get("insurance"),
-                    (Double)map.get("tax"),(Double)map.get("wages"),
-                    (Double)map.get("truewages"),(Date)map.get("date"));
-            wages.setWagesid((Integer)map.get("id"));
-            wagesList.add(wages);
-        }
-        return wagesList;
     }
 }

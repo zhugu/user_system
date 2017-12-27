@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * @author 徐文倩
  */
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
     private UserDAO userDAO = DAOFactory.getUserDAOInstance();
     private UserPermissionDAO userPermissionDAO = DAOFactory.getUserAuthorityDAOInstance();
     private AttendanceDAO attendanceDAO = DAOFactory.getAttendanceDAOInstance();
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> phoneLogin(String tel, String number, String captcha) throws SQLException {
+    public Map<String, Object> phoneLogin(String tel, String number, String captcha){
         Map<String, Object> map = new HashMap<>();
         User user = null;
 
@@ -91,9 +91,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Attendance> getAttendance(String userid) throws SQLException {
+    public List<Attendance> getAttendance(String userid){
         List<Attendance> list = null;
-        list = attendanceDAO.getAttendance(userid);
+        try {
+            list = attendanceDAO.getAttendance(userid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return list;
     }
 
@@ -113,17 +117,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Republish> getRP(String userid) throws SQLException {
+    public List<Republish> getRP(String userid){
         List<Republish> list = null;
-        list = republishDAO.getRP(userid);
+        try {
+            list = republishDAO.getRP(userid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return list;
     }
 
     @Override
-   public Wages getWages(String userid){
-        Wages wages = null;
+    public List<Wages> search(String account) throws SQLException {
+        List<Wages> wages=null;
         try {
-            wages = wagesDAO.getWages(userid);
+            wages=wagesDAO.search(account);
         } catch (SQLException e) {
             e.printStackTrace();
         }

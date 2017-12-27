@@ -8,8 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -67,7 +65,6 @@ public class MobileLogin {
         for(int i = 0;i<jPanels.length;i++){
             jPanel.add(jPanels[i]);
         }
-
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,11 +98,7 @@ public class MobileLogin {
                 phone = phoneTextField.getText();
                 String number = captchaTextField.getText();
                 Map<String, Object> map = null;
-                try {
-                    map = userService.phoneLogin(phone,number,captcha);
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
+                map = userService.phoneLogin(phone,number,captcha);
                 //输出登陆成功与否的信息
                 JOptionPane.showMessageDialog(null,map.get("info"));
                 System.out.println(map.get("user"));

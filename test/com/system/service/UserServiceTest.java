@@ -100,8 +100,10 @@ public class UserServiceTest {
     }
     @Test
     public void getWages()throws Exception{
-        Wages wages = userService.getWages("101004");
-       System.out.println(wages);
+        List<Wages> wagesList = userService.search("101001");
+        for (Wages wages:wagesList){
+            System.out.println(wages);
+        }
     }
 
 }

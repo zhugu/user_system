@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author 徐文倩
@@ -80,17 +81,17 @@ public class UserFrame2 {
     }
 
     public static void main(String[] args) {
-        UserService userService = ServiceFactory.getUserServiceInstance();
-        Wages wages = null;
-        try {
-            wages = userService.getWages("101001" );
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        JFrame frame = new JFrame("UserFrame2");
-        frame.setContentPane(new UserFrame2(wages).mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+//        UserService userService = ServiceFactory.getUserServiceInstance();
+//        List<Wages> wages = null;
+//        try {
+//            wages = userService.search("101001" );
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        JFrame frame = new JFrame("UserFrame2");
+//        frame.setContentPane(new UserFrame2(wages).mainPanel);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.pack();
+//        frame.setVisible(true);
     }
 }

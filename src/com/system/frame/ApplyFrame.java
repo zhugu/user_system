@@ -43,11 +43,7 @@ public class ApplyFrame extends JFrame{
         setSize(800,600);
 
         this.apply = apply;
-        try {
-            user = ServiceFactory.getUserServiceInstance().getUser(apply.getUserid());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        user = ServiceFactory.getUserServiceInstance().getUser(apply.getUserid());
         JLabel6.setText(apply.getUserid());
         JLabel7.setText(user.getName());
         JLabel8.setText(apply.getApplydate().toString());

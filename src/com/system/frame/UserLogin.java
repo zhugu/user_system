@@ -83,11 +83,7 @@ public class UserLogin {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Map<String, Object> map = null;
-                try {
-                    map = userService.userLogin(idTextField.getText(), passwordTextField.getText());
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
+                map = userService.userLogin(idTextField.getText(), passwordTextField.getText());
                 //输出登陆成功与否的信息
                 JOptionPane.showMessageDialog(null,map.get("info"));
 
