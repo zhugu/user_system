@@ -1,5 +1,7 @@
 package com.system.frame;
 
+import com.system.dao.ApplyDAO;
+import com.system.factory.DAOFactory;
 import com.system.factory.ServiceFactory;
 import com.system.model.Apply;
 import com.system.model.User;
@@ -32,6 +34,7 @@ public class ApplyFrame extends JFrame{
     private User user;
     private String flag;
     private ApplyService applyService = ServiceFactory.getApplyServiceInstance();
+    private ApplyDAO applyDAO = DAOFactory.getApplyDAOInstance();
 
     public ApplyFrame(Apply apply){
         add(mainPanel);
@@ -54,25 +57,25 @@ public class ApplyFrame extends JFrame{
         group.add(驳回RadioButton);
         if (apply.getExamination().equals("通过"))
         {
-            通过RadioButton.isSelected();
+            通过RadioButton.setSelected(true);
         }
         if (apply.getExamination().equals("驳回"))
         {
-            驳回RadioButton.isSelected();
+            驳回RadioButton.setSelected(true);
         }
         确认Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (通过RadioButton.isSelected()){
-                    flag = " 通过";
+                if (通过RadioButton.isSelected() == true){
+                    flag = "通过";
                     apply.setExamination(flag);
-                } if (驳回RadioButton.isSelected())
+                } else if (驳回RadioButton.isSelected() == true)
                 {
-                    flag = " 驳回 ";
+                    flag = "驳回";
                     apply.setExamination(flag);
                 }
                 try {
-                    applyService.update(apply);
+                    applyDAO.update(apply);
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }

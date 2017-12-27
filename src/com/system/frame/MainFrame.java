@@ -157,4 +157,7 @@ public class MainFrame extends JFrame{
         });
     }
 
+    public User getUser() {
+        return user;
+    }
 }

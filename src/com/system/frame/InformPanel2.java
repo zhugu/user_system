@@ -82,7 +82,7 @@ public class InformPanel2 extends JPanel{
         r1.setBackground(Color.LIGHT_GRAY);
         table1.getTableHeader().setDefaultRenderer(r1);
         //内容字符串数组
-        String[] content = new String[3];
+        String[] content = new String[10];
         //获取到数据库中所有用户信息
         informs = informService.getAllInform();
         Iterator<Inform> iterator = informs.iterator();

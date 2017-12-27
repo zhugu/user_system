@@ -1,4 +1,4 @@
-package com.system.frame;
+package com.system.utils;
 
 import javax.swing.*;
 import java.awt.*;

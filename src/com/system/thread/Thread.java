@@ -1,6 +1,6 @@
 package com.system.thread;
 
-import com.system.frame.ImagePanel;
+import com.system.utils.ImagePanel;
 
 import java.util.Random;
 

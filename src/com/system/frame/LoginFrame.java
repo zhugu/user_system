@@ -3,6 +3,7 @@ package com.system.frame;
 import com.system.factory.ServiceFactory;
 import com.system.service.UserService;
 import com.system.thread.Thread;
+import com.system.utils.ImagePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -91,6 +92,8 @@ public class LoginFrame {
         ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
         ses.scheduleAtFixedRate(thread,2,2, TimeUnit.SECONDS);
     }
+
+
 
     public static void main(String[] args) {
         try {

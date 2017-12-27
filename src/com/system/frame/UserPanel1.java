@@ -3,6 +3,7 @@ package com.system.frame;
 import com.system.dao.RepublishDAO;
 import com.system.factory.DAOFactory;
 import com.system.model.Republish;
+import com.system.utils.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;

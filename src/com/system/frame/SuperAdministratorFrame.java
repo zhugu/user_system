@@ -6,6 +6,7 @@ import com.system.model.User;
 import com.system.model.Wages;
 import com.system.service.DepartmentService;
 import com.system.service.ExportService;
+import com.system.ui.WarningDialog;
 import com.system.utils.ExportUserExcel;
 import com.system.utils.ExportWagesExcel;
 import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
@@ -269,7 +270,7 @@ public class SuperAdministratorFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 card.show(centerPanel,"初始化数据");
-//                new WarningDialog("您确定要初始化吗？这可能会使您丢失所有数据。");
+                new WarningDialog("您确定要初始化吗？这可能会使您丢失所有数据。");
             }
         });
 
@@ -281,6 +282,9 @@ public class SuperAdministratorFrame extends JFrame {
         });
     }
 
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
     public static void main(String[] args) {
         new SuperAdministratorFrame();
